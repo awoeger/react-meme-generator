@@ -4,12 +4,15 @@ export default function Input() {
   const [top, setTop] = useState('');
   const [bottom, setBottom] = useState('');
   const [select, setSelect] = useState('');
+  const [url, setUrl] = useState('');
 
   const handleTopChange = (event) => setTop(event.currentTarget.value);
   const handleBottomChange = (event) => setBottom(event.currentTarget.value);
   const handleSelectChange = (event) => setSelect(event.currentTarget.value);
 
-  const handleMemeClick = () => {};
+  const handleMemeClick = () => {
+    setUrl(`https://api.memegen.link/images/${select}/${top}/${bottom}.png`);
+  };
 
   return (
     <form>
@@ -35,8 +38,11 @@ export default function Input() {
         <option>ackbar</option>
         <option>afraid</option>
       </select>
-      <button type="button">Display meme</button>
+      <button type="button" onClick={handleMemeClick}>
+        Display meme
+      </button>
       <button type="button">Download</button>
+      <img alt="Generated Meme" src={url} />
     </form>
   );
 }
