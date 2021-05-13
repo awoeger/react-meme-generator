@@ -1,7 +1,9 @@
 import './App.css';
+import Input from './Input';
+import MemeContainer from './MemeContainer';
 
 function App() {
-  return null;
+  return <Input />;
 }
 
 export default App;
